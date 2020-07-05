@@ -1,0 +1,30 @@
+
+    "error": Int,
+    "message": String,
+    "data": {
+        "id": Int,
+        "type": "normal",
+        "title": String,
+        "author": String,
+        "cover": {
+            "cover_type": String,
+            "photo_url": String,
+            "status": String
+        },
+        "description": String,
+        "status": String,
+        "body": [
+            {
+                "type": String,
+                "content": String
+            },
+            ...
+        ],
+        "related_medias": [
+            String,
+            ...
+        ],
+        "tracking_link": String,
+        "comment": String
+    }
+}
