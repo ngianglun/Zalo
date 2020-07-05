@@ -1,0 +1,7 @@
+curl \
+ -X POST \
+ -H "Content-Type: application/json" \
+ -d '{
+        "token" : "agkuioska4sd56as82654654asd+fbkjjsj24uicvi=="
+}' \
+ 'https://openapi.zalo.me/v2.0/article/verify?access_token=<ACCESS_TOKEN>'
