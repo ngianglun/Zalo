@@ -1,0 +1,25 @@
+// build data
+$msgBuilder = new MessageBuilder('text');
+$msgBuilder->withUserId('494021888309207992');
+$msgBuilder->withText('Message Text');
+ 
+// add buttons (only support 5 buttons - optional)
+$actionOpenUrl = $msgBuilder->buildActionOpenURL('https://wwww.google.com'); // build action open link
+$msgBuilder->withButton('Open Link', $actionOpenUrl);
+ 
+$actionQueryShow = $msgBuilder->buildActionQueryShow('query_show'); // build action query show
+$msgBuilder->withButton('Query Show', $actionQueryShow);
+ 
+$actionQueryHide = $msgBuilder->buildActionQueryHide('query_hide'); // build action query hide
+$msgBuilder->withButton('Query Hide', $actionQueryHide);
+ 
+$actionOpenPhone = $msgBuilder->buildActionOpenPhone('0919018791'); // build action open phone
+$msgBuilder->withButton('Open Phone', $actionOpenPhone);
+ 
+$actionOpenSMS = $msgBuilder->buildActionOpenSMS('0919018791', 'sms text'); // build action open sms
+$msgBuilder->withButton('Open SMS', $actionOpenSMS);
+ 
+$msgText = $msgBuilder->build();
+// send request
+$response = $zalo->post(ZaloEndpoint::API_OA_SEND_MESSAGE, $accessToken, $msgText);
+$result = $response->getDecodedBody(); // result
